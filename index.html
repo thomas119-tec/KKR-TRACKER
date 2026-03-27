@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>K.K.RAYAN FINANCE TRACKER</h1>
+    </header>
+    <main>
+        <section id="transactions">
+            <h2>Transactions</h2>
+            <form id="transaction-form">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" step="0.01" required>
+                <label for="type">Type:</label>
+                <select id="type" required>
+                    <option value="spend">Spend</option>
+                    <option value="receive">Receive</option>
+                </select>
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="food">Food</option>
+                    <option value="transport">Transport</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="utilities">Utilities</option>
+                    <option value="other">Other</option>
+                </select>
+                <label for="date">Date:</label>
+                <input type="date" id="date" required>
+                <button type="submit">Add Transaction</button>
+                <a href="summary.html" class="btn-summary">View Summary</a>
+            </form>
+            <ul id="transaction-list"></ul>
+        </section>
+        <section id="borrows">
+            <h2>Borrows</h2>
+            <form id="borrow-form">
+                <label for="borrow-amount">Amount:</label>
+                <input type="number" id="borrow-amount" step="0.01" required>
+                <label for="borrow-type">Type:</label>
+                <select id="borrow-type" required>
+                    <option value="lent">Lent (Money borrowed from me)</option>
+                    <option value="borrowed">Borrowed (Money I borrowed)</option>
+                </select>
+                <label for="person">Person:</label>
+                <input type="text" id="person" required>
+                <label for="borrow-date">Date:</label>
+                <input type="date" id="borrow-date" required>
+                <button type="submit">Add Borrow</button>
+            </form>
+            <ul id="borrow-list"></ul>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

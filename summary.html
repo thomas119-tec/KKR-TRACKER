@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary - K.K.RAYAN FINANCE TRACKER</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>K.K.RAYAN FINANCE TRACKER</h1>
+    </header>
+    <main>
+        <section id="filters">
+            <h2>Filter by Date</h2>
+            <label for="year-select">Year:</label>
+            <select id="year-select">
+                <option value="all">All Years</option>
+            </select>
+            <label for="month-select">Month:</label>
+            <select id="month-select">
+                <option value="all">All Months</option>
+            </select>
+            <label for="day-select">Day:</label>
+            <select id="day-select">
+                <option value="all">All Days</option>
+            </select>
+        </section>
+        <section id="summary-chart-section">
+            <h2>Spend Category Breakdown</h2>
+            <canvas id="summary-chart" width="400" height="400"></canvas>
+            <p>Click on a segment to view detailed transactions.</p>
+        </section>
+        <section id="detail-section">
+            <h2>Details</h2>
+            <p id="detail-title">Click a slice to see details</p>
+            <ul id="detail-list"></ul>
+        </section>
+        <section id="actions" style="grid-column: span 2; text-align:center;">
+            <button id="download-pdf" class="btn-summary">Download PDF Report</button>
+            <a href="index.html" class="btn-summary">Back to Dashboard</a>
+        </section>
+    </main>
+    <script src="summary.js"></script>
+</body>
+</html>
