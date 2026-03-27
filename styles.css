@@ -6,6 +6,7 @@ body {
     color: #f23d39;
     line-height: 1.6;
     perspective: 1000px;
+    overflow-x: hidden;
 }
 
 header {
@@ -17,14 +18,28 @@ header {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 45px rgba(40, 100, 250, 0.55);
 }
 
+header h1 {
+    margin: 0;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    word-wrap: break-word;
+}
+
 main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     transform-style: preserve-3d;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 }
 
 section {
@@ -37,6 +52,19 @@ section {
     transform: translateZ(0);
     transition: transform 0.35s ease, box-shadow 0.35s ease;
     animation: neonPulse 2s infinite alternate;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(56, 209, 220, 0.5),
+                    inset 0 0 15px rgba(56, 209, 220, 0.3);
+    }
+    
+    section:hover {
+        transform: translateY(-3px) scale(1.01);
+    }
 }
 
 section:hover {
@@ -58,6 +86,7 @@ h2 {
     color: #f23d39;
     margin-bottom: 1rem;
     transform: translateZ(10px);
+    font-size: clamp(1.3rem, 4vw, 2rem);
 }
 
 section {
@@ -70,8 +99,26 @@ form {
     gap: 0.5rem;
 }
 
+@media (max-width: 768px) {
+    form {
+        gap: 1rem;
+    }
+}
+
 label {
     font-weight: bold;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    canvas {
+        max-width: 100%;
+    }
 }
 
 input, select, button {
@@ -82,6 +129,15 @@ input, select, button {
     transform: translateZ(5px);
 }
 
+@media (max-width: 768px) {
+    input, select, button {
+        padding: 0.75rem;
+        font-size: 16px;
+        min-height: 44px;
+        border-radius: 6px;
+    }
+}
+
 button {
     background-color: #4a90e2;
     color: white;
@@ -89,12 +145,26 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
     transform: translateZ(10px);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    button {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 }
 
 button:hover {
     background-color: #357abd;
     transform: translateZ(15px) scale(1.05);
     box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+}
+
+@media (max-width: 768px) {
+    button:hover {
+        transform: scale(1.02);
+    }
 }
 
 .btn-summary {
@@ -110,9 +180,24 @@ button:hover {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+@media (max-width: 768px) {
+    .btn-summary {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem;
+    }
+}
+
 .btn-summary:hover {
     transform: translateZ(15px) scale(1.04);
     box-shadow: 0 6px 18px rgba(32, 201, 151, 0.4);
+}
+
+@media (max-width: 768px) {
+    .btn-summary:hover {
+        transform: scale(1.02);
+    }
 }
 
 ul {
@@ -125,12 +210,33 @@ li {
     border-bottom: 1px solid #eee;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     transform: translateZ(5px);
     transition: transform 0.3s ease;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.75rem 0.5rem;
+    }
+    
+    li button {
+        width: 100%;
+    }
 }
 
 li:hover {
     transform: translateZ(10px) scale(1.02);
+}
+
+@media (max-width: 768px) {
+    li:hover {
+        transform: scale(1.01);
+    }
 }
 
 #summary {
@@ -139,8 +245,21 @@ li:hover {
     transform: rotateX(-2deg);
 }
 
+@media (max-width: 768px) {
+    #summary {
+        grid-column: span 1;
+    }
+}
+
 #summary p {
     font-size: 1.2rem;
     margin: 0.5rem 0;
     transform: translateZ(10px);
+    word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+    #summary p {
+        font-size: 1rem;
+    }
 }
